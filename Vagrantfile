@@ -3,7 +3,7 @@
 
 Vagrant.configure("2") do |config|
   config.vm.box = "cybersecurity/UbuntuVM"
-  config.vm.hostname = "ucibox"
+  config.vm.hostname = "naboo"
 
   #config.vm.network "private_network", ip: "10.55.55.9"
 
@@ -23,7 +23,7 @@ Vagrant.configure("2") do |config|
     # vb.memory = "1024" # 1Gb
     # vb.memory = "2048" # 2Gb
     # vb.memory = "4096" # 4Gb
-    vb.name = "UCIBox"
+    vb.name = "Naboo (UCIBox)"
     # vb.gui = false
     vb.cpus = "4"
     vb.memory = "4096"
