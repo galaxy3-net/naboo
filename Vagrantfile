@@ -16,6 +16,8 @@ Vagrant.configure("2") do |config|
   config.vm.network "forwarded_port", guest: 3389, host: 3389, host_ip: "127.0.0.1", auto_correct: true
   config.vm.network "forwarded_port", guest: 5901, host: 5901, host_ip: "127.0.0.1", auto_correct: true
 
+  config.vm.network "private_network", ip: "10.55.55.3"
+
   config.vm.provider "virtualbox" do |vb|
     # Display the VirtualBox GUI when booting the machine
     # Uncomment ONE the lines below to control how much RAM Vagrant gives the VM
@@ -32,6 +34,7 @@ Vagrant.configure("2") do |config|
     vb.customize ['modifyvm', :id, '--vrde', 'on']
     vb.customize ['modifyvm', :id, '--vrdeport', '5002']
     vb.customize ['modifyvm', :id, '--graphicscontroller', 'vboxsvga']
+    vb.customize ['modifyvm', :id, '--nictype1', 'virtio']
     #vb.customize ['modifyvm', :id, '--firmware', 'efi64']
     #vb.customize ['modifyvm', :id, '--nictype1', 'virtio']
   end
