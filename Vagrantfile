@@ -39,24 +39,11 @@ Vagrant.configure("2") do |config|
     #vb.customize ['modifyvm', :id, '--nictype1', 'virtio']
   end
    config.vm.provision "shell", inline: <<-SHELL
-     apt-get update
-     apt-get autoremove -y
-     apt-get install -yq net-tools ansible dos2unix supervisor htop
-     apt-get clean
-     apt-get autoclean
+     tr -d '\r' < /vagrant/functions/ready >/usr/local/bin/ready && chmod 0700 /usr/local/bin/ready
+     /usr/local/bin/ready
+     /usr/local/bin/install_pkgs
+     /usr/local/bin/pull_repos
 
-     file /vagrant/functions/ready | grep CRLF && dos2unix -n /vagrant/functions/ready /usr/local/bin/ready
-     file /vagrant/functions/ready | grep CRLF || cp /vagrant/functions/ready /usr/local/bin/ready
-     chmod 0700 /usr/local/bin/ready
-     ready
-
-     pull_repos
-
-     #iptables -F
-     #iptables -X
-     #iptables -P INPUT ACCEPT
-     #iptables -P OUTPUT ACCEPT
-     #iptables -P FORWARD ACCEPT
      iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
      iptables -A INPUT -p tcp --dport 3389 -m state --state NEW -j ACCEPT
 
