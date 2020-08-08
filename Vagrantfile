@@ -5,8 +5,12 @@ require 'yaml'
 
 current_dir    = File.dirname(File.expand_path(__FILE__))
 configs        = YAML.load_file("#{current_dir}/config.yaml")
+g3home		   = ENV['G3HOME']
+g3_config	   = YAML.load_file("#{g3home}/g3.yaml")
 branch         = ENV['BRANCH']
 vagrant_config = configs['configs'][branch]
+
+thedr_userid = g3_config['g3']['default']['userid']
 
 Vagrant.configure("2") do |config|
   config.vm.box = "cybersecurity/UbuntuVM"
@@ -14,7 +18,7 @@ Vagrant.configure("2") do |config|
 
   #config.vm.network "private_network", ip: "10.55.55.9"
 
-  config.vm.synced_folder	"../../",	"/vagrant", owner: "2001", group: "2001"
+  config.vm.synced_folder	"../../",	"/vagrant", owner: thedr_userid, group: "2001"
   config.vm.synced_folder "../../repos", "/repos", owner: "2001", group: "2001", create: true
   config.vm.synced_folder "../../Downloads", "/Downloads", owner: "2001", group: "2001", create: true
   #config.vm.synced_folder "../../log/nakadia", "/var/log/", owner: "2001", group: "2001", create: true
