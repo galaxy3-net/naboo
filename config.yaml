@@ -13,12 +13,12 @@ configs:
       for their University Cybersecurity Bootcamps.
                                                           =
       This VM was included in the G3 lab for convenience.
-
+                              =
       Accounts:
-        Vagrant: vagrant / splunk
-        Admin:   admin / cybersecurity
-
+          Vagrant: vagrant / splunk
+          Admin:   admin / cybersecurity
+                             =
       Splunk:
-        Start:    g3enable nakadia
-        Connect:  http://splunk.galaxy3.net:8000
-        User:     admin / cybersecurity
+          Start:    g3enable nakadia
+          Connect:  http://splunk.galaxy3.net:8000
+          User:     admin / cybersecurity
