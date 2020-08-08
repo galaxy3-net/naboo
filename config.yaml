@@ -5,7 +5,10 @@ configs:
     public_ip: '192.168.2.117'
 
   thedr:
-    public_ip: '192.168.1.117'
+    private_ip: 10.55.55.7
+    virtualbox:
+      cpus: 4
+      memory: 4096
     description: |
       Naboo (ucibox)
       =====================================================
