@@ -8,7 +8,7 @@ configs        = YAML.load_file("#{current_dir}/config.yaml")
 g3home		   = ENV['G3HOME']
 g3_config	   = YAML.load_file("#{g3home}/g3.yaml")
 g3branch         = ENV['G3BRANCH']
-vagrant_config = configs['configs'][branch]
+vagrant_config = configs['configs'][g3branch]
 
 thedr_userid = g3_config['g3'][g3branch]['userid']
 thedr_groupid = g3_config['g3'][g3branch]['groupid']
@@ -49,7 +49,6 @@ Vagrant.configure("2") do |config|
     vb.customize ['modifyvm', :id, '--nictype1', 'virtio']
     #vb.customize ['modifyvm', :id, '--firmware', 'efi64']
     #vb.customize ['modifyvm', :id, '--nictype1', 'virtio']
-    #vb.customize ['modifyvm', :id, '--description', ENV['BRANCH']]
     vb.customize ['modifyvm', :id, '--description', vagrant_config['description']]
   end
    config.vm.provision "shell", inline: <<-SHELL
