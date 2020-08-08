@@ -9,3 +9,6 @@ configs:
     description: >
      username: vagrant\n
      password: vagrant\n
+
+      username:  ysername
+      password: password
