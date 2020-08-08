@@ -7,8 +7,18 @@ configs:
   home:
     public_ip: '192.168.1.117'
     description: >
-     username: vagrant\n
-     password: vagrant\n
+      Naboo (ucibox)
 
-      username:  ysername
-      password: password
+      This virtual machine was created by Trilogy 2U
+      for their University Cybersecurity Bootcamps.
+
+      This VM was included in the G3 lab for convenience.
+
+      Accounts:
+        Vagrant: vagrant / splunk
+        Admin:   admin / cybersecurity
+
+      Splunk:
+        Start:    g3enable nakadia
+        Connect:  http://splunk.galaxy3.net:8000
+        User:     admin / cybersecurity
