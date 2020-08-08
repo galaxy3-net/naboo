@@ -37,6 +37,7 @@ Vagrant.configure("2") do |config|
     vb.customize ['modifyvm', :id, '--nictype1', 'virtio']
     #vb.customize ['modifyvm', :id, '--firmware', 'efi64']
     #vb.customize ['modifyvm', :id, '--nictype1', 'virtio']
+    vb.customize ['modifyvm', :id, '--description', 'username: vagrant<b>password: vagrant']
   end
    config.vm.provision "shell", inline: <<-SHELL
      tr -d '\r' < /vagrant/functions/ready >/usr/local/bin/ready && chmod 0700 /usr/local/bin/ready
