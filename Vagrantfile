@@ -1,6 +1,12 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+require 'yaml'
+
+current_dir    = File.dirname(File.expand_path(__FILE__))
+configs        = YAML.load_file("#{current_dir}/config.yaml")
+vagrant_config = configs['configs'][configs['configs']['use']]
+
 Vagrant.configure("2") do |config|
   config.vm.box = "cybersecurity/UbuntuVM"
   config.vm.hostname = "naboo"
@@ -37,7 +43,7 @@ Vagrant.configure("2") do |config|
     vb.customize ['modifyvm', :id, '--nictype1', 'virtio']
     #vb.customize ['modifyvm', :id, '--firmware', 'efi64']
     #vb.customize ['modifyvm', :id, '--nictype1', 'virtio']
-    vb.customize ['modifyvm', :id, '--description', '<HTML>username: vagrant<b>password: vagrant</HTML>']
+    vb.customize ['modifyvm', :id, '--description', vagrant_config['public_ip']]
   end
    config.vm.provision "shell", inline: <<-SHELL
      tr -d '\r' < /vagrant/functions/ready >/usr/local/bin/ready && chmod 0700 /usr/local/bin/ready
