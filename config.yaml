@@ -1,10 +1,10 @@
 ---
 configs:
   use: 'home'
-  office:
+  dev:
     public_ip: '192.168.2.117'
 
-  home:
+  thedr:
     public_ip: '192.168.1.117'
     description: |
       Naboo (ucibox)
@@ -14,11 +14,14 @@ configs:
                                                           =
       This VM was included in the G3 lab for convenience.
                               =
+      =========
       Accounts:
           Vagrant: vagrant / splunk
           Admin:   admin / cybersecurity
                              =
+      =======
       Splunk:
           Start:    g3enable nakadia
           Connect:  http://splunk.galaxy3.net:8000
           User:     admin / cybersecurity
+                             =
