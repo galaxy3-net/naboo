@@ -6,12 +6,12 @@ configs:
 
   home:
     public_ip: '192.168.1.117'
-    description: >
+    description: |
       Naboo (ucibox)
-
+      =====================================================
       This virtual machine was created by Trilogy 2U
       for their University Cybersecurity Bootcamps.
-
+                                                          =
       This VM was included in the G3 lab for convenience.
 
       Accounts:
