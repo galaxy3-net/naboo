@@ -10,7 +10,7 @@ g3_config	   = YAML.load_file("#{g3home}/g3.yaml")
 branch         = ENV['BRANCH']
 vagrant_config = configs['configs'][branch]
 
-thedr_userid = g3_config['g3']['default']['userid']
+thedr_userid = g3_config['g3'][branch]['userid']
 
 Vagrant.configure("2") do |config|
   config.vm.box = "cybersecurity/UbuntuVM"
