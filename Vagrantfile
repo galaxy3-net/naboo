@@ -54,13 +54,13 @@ Vagrant.configure("2") do |config|
    config.vm.provision "shell", inline: <<-SHELL
      tr -d '\r' < /vagrant/functions/ready >/usr/local/bin/ready && chmod 0700 /usr/local/bin/ready
      /usr/local/bin/ready
-     /usr/local/bin/install_pkgs "supervisor"
-     /usr/local/bin/pull_repos
+     #/usr/local/bin/install_pkgs "supervisor" | tee -a /var/log/install_pkgs.log 2>&1
+     #/usr/local/bin/pull_repos
 
      iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
      iptables -A INPUT -p tcp --dport 3389 -m state --state NEW -j ACCEPT
 
-     setup_xrdp
-     setup_vnc
+     #setup_xrdp
+     #setup_vnc
 SHELL
 end
