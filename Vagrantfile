@@ -60,7 +60,7 @@ Vagrant.configure("2") do |config|
      iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
      iptables -A INPUT -p tcp --dport 3389 -m state --state NEW -j ACCEPT
 
-     #setup_xrdp
+     setup_xrdp
      #setup_vnc
 SHELL
 end
