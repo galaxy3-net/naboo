@@ -20,7 +20,8 @@ Vagrant.configure("2") do |config|
   #config.vm.network "private_network", ip: "10.55.55.9"
 
   config.vm.synced_folder	"../../",	        "/vagrant",   owner: thedr_userid, group: thedr_groupid
-  config.vm.synced_folder "../../repos",        "/repos",     owner: thedr_userid, group: thedr_groupid, create: true
+  # config.vm.synced_folder "../../repos",        "/repos",     owner: thedr_userid, group: thedr_groupid, create: true
+  config.vm.synced_folder "~/repos",        "/repos",     owner: thedr_userid, group: thedr_groupid, create: true
   config.vm.synced_folder "../../Downloads",    "/Downloads", owner: thedr_userid, group: thedr_groupid, create: true
   #config.vm.synced_folder "../../log/nakadia", "/var/log/",  owner: thedr_userid, group: thedr_groupid, create: true
 
