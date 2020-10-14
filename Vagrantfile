@@ -9,8 +9,8 @@ Vagrant.configure("2") do |config|
 
   config.vm.synced_folder	"../../",	"/vagrant", owner: "1001", group: "1001"
   config.vm.synced_folder "~/repos/uci", "/repos", owner: "1001", group: "1001", mount_options: ["fmode=777", "dmode=777"], create: true
-  config.vm.synced_folder "../../Downloads", "/Downloads", owner: "1001", group: "1001", create: true
-  #config.vm.synced_folder "../../log/nakadia", "/var/log/", owner: "1001", group: "1001", create: true
+  config.vm.synced_folder "../../Downloads", "/Downloads", owner: "1001", group: "1001", mount_options: ["fmode=777", "dmode=777"], create: true
+  #config.vm.synced_folder "../../log/nakadia", "/var/log/", owner: "1001", group: "1001", mount_options: ["fmode=777", "dmode=777"], create: true
 
   config.vm.network "forwarded_port", guest: 8000, host: 8000, host_ip: "127.0.0.1", auto_correct: true
   config.vm.network "forwarded_port", guest: 3389, host: 3389, host_ip: "127.0.0.1", auto_correct: true
