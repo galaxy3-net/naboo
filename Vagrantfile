@@ -4,6 +4,7 @@
 Vagrant.configure("2") do |config|
   config.vm.box = "cybersecurity/UbuntuVM"
   config.vm.hostname = "ucibox"
+  config.vm.box_version = '1.1.10'
 
   #config.vm.network "private_network", ip: "10.55.55.9"
 
