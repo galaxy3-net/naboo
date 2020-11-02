@@ -1,7 +1,4 @@
 ---
 - hosts: all
-  vars:
-    pkgs:
-      - tree
   roles:
     - ansible
