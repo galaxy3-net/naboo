@@ -6,3 +6,4 @@
   ansible.builtin.apt:
     name: "tree"
     state: present
+  become: yes
