@@ -1,0 +1,8 @@
+---
+# tasks file for ansible
+
+# roles/example/tasks/debian.yml
+- name: Install web server
+  ansible.builtin.apt:
+    name: "tree"
+    state: present
