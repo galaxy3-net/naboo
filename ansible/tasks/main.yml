@@ -2,9 +2,18 @@
 # tasks file for ansible
 
 # roles/example/tasks/debian.yml
-- name: Install web server
+- name: Install Packages
   ansible.builtin.apt:
     name: "{{item}}"
     state: present
   loop: "{{ pkgs }}"
+  become: yes
+
+- name: Create theDr
+  user:
+    name: thedr
+    uid: 2001
+    shell: /bin/bash
+    comment: "Master of the Universe"
+    home: /thedr
   become: yes
