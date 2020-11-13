@@ -49,6 +49,6 @@ Vagrant.configure("2") do |config|
      #setup_vnc
 SHELL
   config.vm.provision "ansible" do |ansible|
-    ansible.playbook = "~/playbook.yml"
+    ansible.playbook = "/vagrant/vagrant/naboo/playbook.yml"
   end
 end
