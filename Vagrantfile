@@ -30,10 +30,10 @@ Vagrant.configure("2") do |config|
     vb.memory = "4096"
     vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
 
-    vb.customize ['modifyvm', :id, '--vrde', 'on']
-    vb.customize ['modifyvm', :id, '--vrdeaddress', '0.0.0.0']
-    vb.customize ['modifyvm', :id, '--vrdeport', '2200']
-    vb.customize ['modifyvm', :id, '--graphicscontroller', 'vboxsvga']
+    vb.customize ['modifyvm', :id, '--vrde', 'off']
+    #vb.customize ['modifyvm', :id, '--vrdeaddress', '0.0.0.0']
+    #vb.customize ['modifyvm', :id, '--vrdeport', '2200']
+    #vb.customize ['modifyvm', :id, '--graphicscontroller', 'vboxsvga']
     #vb.customize ['modifyvm', :id, '--firmware', 'efi64']
     #vb.customize ['modifyvm', :id, '--nictype1', 'virtio']
   end
