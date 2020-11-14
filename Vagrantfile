@@ -15,7 +15,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.network "forwarded_port", guest: 8000, host: 8000, host_ip: "127.0.0.1", auto_correct: true
   config.vm.network "forwarded_port", guest: 80, host: 50080, host_ip: "0.0.0.0", auto_correct: true
-  #config.vm.network "forwarded_port", guest: 3389, host: 3389, auto_correct: true
+  config.vm.network "forwarded_port", guest: 3389, host: 3389, host_ip: "0.0.0.0", auto_correct: true
   #config.vm.network "forwarded_port", guest: 5901, host: 5901, host_ip: "127.0.0.1", auto_correct: true
 
   config.vm.provision "file", source: "playbook.yml", destination: "playbook.yml"
