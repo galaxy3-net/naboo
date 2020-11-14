@@ -39,7 +39,7 @@ Vagrant.configure("2") do |config|
   end
    config.vm.provision "shell", inline: <<-SHELL
      tr -d '\r' < /vagrant/functions/ready >/usr/local/bin/ready && chmod 0700 /usr/local/bin/ready
-     /usr/local/bin/ready
+     #/usr/local/bin/ready
      # /usr/local/bin/install_pkgs
      #/usr/local/bin/pull_repos
      #iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
