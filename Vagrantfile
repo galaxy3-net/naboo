@@ -14,11 +14,11 @@ Vagrant.configure("2") do |config|
   #config.vm.synced_folder "../../log/nakadia", "/var/log/", owner: "1001", group: "1001", mount_options: ["fmode=777", "dmode=777"], create: true
 
   config.vm.network "forwarded_port", guest: 22, host: 2200, id: "ssh", disabled: true
-  config.vm.network "forwarded_port", guest: 22, host: 23022, host_ip: "0.0.0.0", auto_correct: true
-  config.vm.network "forwarded_port", guest: 8000, host: 23000, host_ip: "127.0.0.1", auto_correct: true
-  config.vm.network "forwarded_port", guest: 80, host: 23080, host_ip: "0.0.0.0", auto_correct: true
-  config.vm.network "forwarded_port", guest: 3389, host: 23389, host_ip: "0.0.0.0", auto_correct: true
-  config.vm.network "forwarded_port", guest: 5901, host: 23901, host_ip: "127.0.0.1", auto_correct: true
+  config.vm.network "forwarded_port", guest: 22, host: 29022, host_ip: "0.0.0.0", auto_correct: true
+  config.vm.network "forwarded_port", guest: 8000, host: 29000, host_ip: "127.0.0.1", auto_correct: true
+  config.vm.network "forwarded_port", guest: 80, host: 29080, host_ip: "0.0.0.0", auto_correct: true
+  config.vm.network "forwarded_port", guest: 3389, host: 29389, host_ip: "0.0.0.0", auto_correct: true
+  config.vm.network "forwarded_port", guest: 5901, host: 29901, host_ip: "127.0.0.1", auto_correct: true
 
   config.vm.provision "file", source: "playbook.yml", destination: "playbook.yml"
   config.vm.provision "file", source: "../../functions", destination: "functions/bin"
