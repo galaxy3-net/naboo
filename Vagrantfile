@@ -6,6 +6,8 @@ Vagrant.configure("2") do |config|
   config.vm.hostname = "ucibox"
   config.vm.box_version = '1.2.0'
 
+  config.vbguest.auto_update = false
+
   config.vm.network "private_network", ip: "10.55.55.9",
   	virtualbox__intnet: "g3main"
 
