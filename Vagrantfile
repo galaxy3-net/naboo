@@ -43,7 +43,7 @@ Vagrant.configure("2") do |config|
     vb.gui = false
     vb.cpus = "4"
     vb.memory = "4096"
-    v.customize ["modifyvm", :id, "--description", File.read("Description")]
+    vb.customize ["modifyvm", :id, "--description", File.read("Description")]
 #    vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
 
     vb.customize ['modifyvm', :id, '--vrde', 'off']
