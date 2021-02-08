@@ -15,7 +15,7 @@ Vagrant.configure("2") do |config|
     trigger.name = "Complete Setup"
   	trigger.info = File.read("Description")
   end
-  config.vm.synced_folder	"../../",	"/vagrant", owner: "1001", group: "1001"
+  config.vm.synced_folder	"./",	"/vagrant", owner: "1001", group: "1001"
   config.vm.synced_folder "~/repos/uci", "/repos", owner: "1001", group: "1001", mount_options: ["fmode=777", "dmode=777"], create: true
   config.vm.synced_folder "../../Downloads", "/Downloads", owner: "1001", group: "1001", mount_options: ["fmode=777", "dmode=777"], create: true
   #config.vm.synced_folder "../../log/nakadia", "/var/log/", owner: "1001", group: "1001", mount_options: ["fmode=777", "dmode=777"], create: true
