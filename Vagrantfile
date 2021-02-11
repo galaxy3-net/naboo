@@ -4,7 +4,7 @@
 Vagrant.configure("2") do |config|
   config.vm.box = "cybersecurity/UbuntuVM"
   config.vm.hostname = "ucibox"
-  config.vm.box_version = '1.2.0'
+  config.vm.box_version = '1.2.3'
 
   config.vbguest.auto_update = false
 
@@ -27,10 +27,10 @@ Vagrant.configure("2") do |config|
   config.vm.network "forwarded_port", guest: 3389, host: 29389, host_ip: "0.0.0.0", auto_correct: true
   config.vm.network "forwarded_port", guest: 5901, host: 29901, host_ip: "127.0.0.1", auto_correct: true
 
-  config.vm.provision "file", source: "playbook.yml", destination: "playbook.yml"
+#  config.vm.provision "file", source: "playbook.yml", destination: "playbook.yml"
   config.vm.provision "file", source: "../../functions", destination: "functions/bin"
-  config.vm.provision "file", source: "hosts", destination: "hosts"
-  config.vm.provision "file", source: "requirements.yml", destination: "requirements.yml"
+#  config.vm.provision "file", source: "hosts", destination: "hosts"
+#  config.vm.provision "file", source: "requirements.yml", destination: "requirements.yml"
 
   config.vm.provider "virtualbox" do |vb|
     # Display the VirtualBox GUI when booting the machine
@@ -44,21 +44,14 @@ Vagrant.configure("2") do |config|
     vb.cpus = "4"
     vb.memory = "4096"
     vb.customize ["modifyvm", :id, "--description", File.read("Description")]
-#    vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
-
     vb.customize ['modifyvm', :id, '--vrde', 'off']
-    #vb.customize ['modifyvm', :id, '--vrdeaddress', '0.0.0.0']
-    #vb.customize ['modifyvm', :id, '--vrdeport', '2200']
-    #vb.customize ['modifyvm', :id, '--graphicscontroller', 'vboxsvga']
-    #vb.customize ['modifyvm', :id, '--firmware', 'efi64']
-    #vb.customize ['modifyvm', :id, '--nictype1', 'virtio']
   end
    config.vm.provision "shell", inline: <<-SHELL
      apt-get install -y ansible python3
 SHELL
   config.vm.provision "ansible_local" do |ansible|
     ansible.playbook = "/vagrant/playbook.yml"
-    ansible.galaxy_role_file = "/home/vagrant/requirements.yml"
-    inventory_path = "/home/vagrant/hosts"
+    ansible.galaxy_role_file = "/vagrant/requirements.yml"
+    inventory_path = "/vagrant/hosts"
   end
 end
