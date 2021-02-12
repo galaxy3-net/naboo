@@ -3,6 +3,7 @@ Naboo (UCIBox)
 Trilogy machine built for student labs.  This machine is only included for student use.
 
 Users:
+	o vagrant / vagrant
 	o instructor / instructor
 	o student / cybersecurity
 	o sysadmin / cybersecurity
