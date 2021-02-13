@@ -5,29 +5,23 @@ Vagrant.configure("2") do |config|
   config.vm.box = "cybersecurity/UbuntuVM"
   config.vm.hostname = "ucibox"
   config.vm.box_version = '1.2.0'
-
   config.vbguest.auto_update = false
-
-  config.vm.network "private_network", ip: "10.55.55.9",
-  	virtualbox__intnet: "g3main"
 
   config.trigger.after :up do |trigger|
     trigger.name = "Complete Setup"
   	trigger.info = File.read("Description")
   end
-  config.vm.synced_folder	"./",	"/vagrant", owner: "1001", group: "1001"
-  config.vm.synced_folder "~/repos/uci", "/repos", owner: "1001", group: "1001", mount_options: ["fmode=777", "dmode=777"], create: true
-  config.vm.synced_folder "../../Downloads", "/Downloads", owner: "1001", group: "1001", mount_options: ["fmode=777", "dmode=777"], create: true
-  #config.vm.synced_folder "../../log/nakadia", "/var/log/", owner: "1001", group: "1001", mount_options: ["fmode=777", "dmode=777"], create: true
 
-  client_vagrantfile = File.expand_path("#{ENV['G3HOME']}/vagrant/kamino/ips.txt", __FILE__)
-  load client_vagrantfile if File.exists?(client_vagrantfile)
+  folders_vagrantfile = File.expand_path("#{ENV['G3HOME']}/vagrant/kamino/vagrant_includes/folders.txt", __FILE__)
+  load folders_vagrantfile if File.exists?(folders_vagrantfile)
+
+  ips_vagrantfile = File.expand_path("#{ENV['G3HOME']}/vagrant/kamino/vagrant_includes/ips.txt", __FILE__)
+  load ips_vagrantfile if File.exists?(ips_vagrantfile)
+
+  files_vagrantfile = File.expand_path("#{ENV['G3HOME']}/vagrant/kamino/vagrant_includes/files.txt", __FILE__)
+  load files_vagrantfile if File.exists?(files_vagrantfile)
 
 
-#  config.vm.provision "file", source: "playbook.yml", destination: "playbook.yml"
-  config.vm.provision "file", source: "../../functions", destination: "functions/bin"
-#  config.vm.provision "file", source: "hosts", destination: "hosts"
-#  config.vm.provision "file", source: "requirements.yml", destination: "requirements.yml"
 
   config.vm.provider "virtualbox" do |vb|
     # Display the VirtualBox GUI when booting the machine
