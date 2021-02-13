@@ -12,14 +12,33 @@ Vagrant.configure("2") do |config|
   	trigger.info = File.read("Description")
   end
 
-  folders_vagrantfile = File.expand_path("#{ENV['G3HOME']}/vagrant/kamino/vagrant_includes/folders.txt", __FILE__)
-  load folders_vagrantfile if File.exists?(folders_vagrantfile)
+  config.vm.synced_folder	"./",	"/vagrant", owner: "1001", group: "1001"
+  config.vm.synced_folder "~/repos/uci", "/repos", owner: "1001", group: "1001", mount_options: ["fmode=777", "dmode=777"], create: true
+  config.vm.synced_folder "../../Downloads", "/Downloads", owner: "1001", group: "1001", mount_options: ["fmode=777", "dmode=777"], create: true
+  #config.vm.synced_folder "../../log/nakadia", "/var/log/", owner: "1001", group: "1001", mount_options: ["fmode=777", "dmode=777"], create: true
 
-  ips_vagrantfile = File.expand_path("#{ENV['G3HOME']}/vagrant/kamino/vagrant_includes/ips.txt", __FILE__)
-  load ips_vagrantfile if File.exists?(ips_vagrantfile)
+  #folders_vagrantfile = File.expand_path("#{ENV['G3HOME']}/vagrant/kamino/vagrant_includes/folders.txt", __FILE__)
+  #load folders_vagrantfile if File.exists?(folders_vagrantfile)
 
-  files_vagrantfile = File.expand_path("#{ENV['G3HOME']}/vagrant/kamino/vagrant_includes/files.txt", __FILE__)
-  load files_vagrantfile if File.exists?(files_vagrantfile)
+  config.vm.network "forwarded_port", guest: 22, host: 2200, id: "ssh", disabled: true
+  config.vm.network "forwarded_port", guest: 22, host: 29022, host_ip: "0.0.0.0", auto_correct: true
+  config.vm.network "forwarded_port", guest: 8000, host: 8000, host_ip: "127.0.0.1", auto_correct: true
+  config.vm.network "forwarded_port", guest: 80, host: 29080, host_ip: "0.0.0.0", auto_correct: true
+  config.vm.network "forwarded_port", guest: 3389, host: 29389, host_ip: "0.0.0.0", auto_correct: true
+  config.vm.network "forwarded_port", guest: 5901, host: 29901, host_ip: "127.0.0.1", auto_correct: true
+
+  config.vm.network "private_network", ip: "10.55.55.9", virtualbox__intnet: "g3main"
+
+  #ips_vagrantfile = File.expand_path("#{ENV['G3HOME']}/vagrant/kamino/vagrant_includes/ips.txt", __FILE__)
+  #load ips_vagrantfile if File.exists?(ips_vagrantfile)
+
+  #  config.vm.provision "file", source: "playbook.yml", destination: "playbook.yml"
+  config.vm.provision "file", source: ""#{ENV['G3HOME']}/functions"", destination: "functions/bin"
+  #  config.vm.provision "file", source: "hosts", destination: "hosts"
+  #  config.vm.provision "file", source: "requirements.yml", destination: "requirements.yml"
+
+  #files_vagrantfile = File.expand_path("#{ENV['G3HOME']}/vagrant/kamino/vagrant_includes/files.txt", __FILE__)
+  #load files_vagrantfile if File.exists?(files_vagrantfile)
 
 
 
