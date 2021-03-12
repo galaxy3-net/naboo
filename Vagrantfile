@@ -33,7 +33,7 @@ Vagrant.configure("2") do |config|
   #load ips_vagrantfile if File.exists?(ips_vagrantfile)
 
   #  config.vm.provision "file", source: "playbook.yml", destination: "playbook.yml"
-  config.vm.provision "file", source: #{ENV['G3HOME']}/functions", destination: "functions/bin"
+  config.vm.provision "file", source: "#{ENV['G3HOME']}/functions", destination: "functions/bin"
   #  config.vm.provision "file", source: "hosts", destination: "hosts"
   #  config.vm.provision "file", source: "requirements.yml", destination: "requirements.yml"
 
