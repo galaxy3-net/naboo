@@ -4,7 +4,7 @@
 Vagrant.configure("2") do |config|
   config.vm.box = "cybersecurity/UbuntuVM"
   config.vm.hostname = "ucibox"
-  config.vm.box_version = '1.2.0'
+  config.vm.box_version = '1.2.3'
   config.vbguest.auto_update = false
 
   config.trigger.after :up do |trigger|
