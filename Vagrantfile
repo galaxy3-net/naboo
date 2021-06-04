@@ -20,8 +20,8 @@ Vagrant.configure("2") do |config|
   #folders_vagrantfile = File.expand_path("#{ENV['G3HOME']}/vagrant/kamino/vagrant_includes/folders.txt", __FILE__)
   #load folders_vagrantfile if File.exists?(folders_vagrantfile)
 
-  config.vm.network "forwarded_port", guest: 22, host: 2200, id: "ssh", disabled: true
-  config.vm.network "forwarded_port", guest: 22, host: 29022, host_ip: "0.0.0.0", auto_correct: true
+  #config.vm.network "forwarded_port", guest: 22, host: 2200, id: "ssh", disabled: true
+  #config.vm.network "forwarded_port", guest: 22, host: 29022, host_ip: "0.0.0.0", auto_correct: true
   config.vm.network "forwarded_port", guest: 25, host: 25, host_ip: "0.0.0.0", auto_correct: true
   config.vm.network "forwarded_port", guest: 8000, host: 8000, host_ip: "127.0.0.1", auto_correct: true
   config.vm.network "forwarded_port", guest: 80, host: 29080, host_ip: "0.0.0.0", auto_correct: true
