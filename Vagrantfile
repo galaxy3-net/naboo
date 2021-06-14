@@ -55,7 +55,7 @@ Vagrant.configure("2") do |config|
     vb.name = "Naboo (ucibox)"
     vb.gui = false
     vb.cpus = "4"
-    vb.memory = "4096"
+    vb.memory = "8192"
     vb.customize ["modifyvm", :id, "--description", File.read("Description")]
     vb.customize ['modifyvm', :id, '--vrde', 'off']
   end
