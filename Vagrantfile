@@ -35,6 +35,9 @@ Vagrant.configure("2") do |config|
   config.vm.network "forwarded_port", guest: 5900, host: 29900, host_ip: "0.0.0.0", auto_correct: true
 
   config.vm.network "private_network", ip: "10.55.55.9", virtualbox__intnet: "g3main"
+    config.vm.network "private_network", ip: "10.55.56.9",
+    	virtualbox__intnet: "metasploitable3",
+    	:mac "080027aabbcc"
 
   #ips_vagrantfile = File.expand_path("#{ENV['G3HOME']}/vagrant/kamino/vagrant_includes/ips.txt", __FILE__)
   #load ips_vagrantfile if File.exists?(ips_vagrantfile)
