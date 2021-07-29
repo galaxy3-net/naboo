@@ -28,6 +28,8 @@ Vagrant.configure("2") do |config|
   config.vm.network "forwarded_port", guest: 8000, host: 8000, host_ip: "127.0.0.1", auto_correct: true
   config.vm.network "forwarded_port", guest: 80, host: 29080, host_ip: "0.0.0.0", auto_correct: true
   config.vm.network "forwarded_port", guest: 8081, host: 8081, host_ip: "0.0.0.0", auto_correct: true
+  config.vm.network "forwarded_port", guest: 8082, host: 8082, host_ip: "0.0.0.0", auto_correct: true
+  config.vm.network "forwarded_port", guest: 8083, host: 8083, host_ip: "0.0.0.0", auto_correct: true
   config.vm.network "forwarded_port", guest: 3389, host: 29389, host_ip: "0.0.0.0", auto_correct: true
   config.vm.network "forwarded_port", guest: 5901, host: 29901, host_ip: "0.0.0.0", auto_correct: true
   config.vm.network "forwarded_port", guest: 5800, host: 29800, host_ip: "0.0.0.0", auto_correct: true
@@ -37,7 +39,7 @@ Vagrant.configure("2") do |config|
   config.vm.network "private_network", ip: "10.55.55.9", virtualbox__intnet: "g3main"
     config.vm.network "private_network", ip: "10.55.56.9",
     	virtualbox__intnet: "metasploitable3",
-    	mac: "080027aabbcc"
+    	mac: "080027aaaaaa"
 
   #ips_vagrantfile = File.expand_path("#{ENV['G3HOME']}/vagrant/kamino/vagrant_includes/ips.txt", __FILE__)
   #load ips_vagrantfile if File.exists?(ips_vagrantfile)
