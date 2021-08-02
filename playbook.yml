@@ -5,3 +5,4 @@
   roles:
     - roles/packages
     - roles/xrdp
+    - roles/armory
