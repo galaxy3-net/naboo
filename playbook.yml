@@ -1,8 +1,8 @@
 ---
-#- hosts: all
-#  vars:
-#    hostname: "ucibox"
-#  roles:
-#    - roles/packages
-#    - roles/xrdp
-#    - roles/armory
+- hosts: all
+  vars:
+    hostname: "ucibox"
+  roles:
+    - roles/packages
+    - roles/xrdp
+    - roles/armory
