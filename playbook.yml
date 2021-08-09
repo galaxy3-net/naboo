@@ -4,5 +4,5 @@
     hostname: ucibox
   roles:
     - roles/packages
-    - roles/xrdp
-    - roles/armory
+#    - roles/xrdp
+#    - roles/armory
