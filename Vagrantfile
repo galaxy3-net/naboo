@@ -67,7 +67,7 @@ Vagrant.configure("2") do |config|
     vb.memory = "8192"
     vb.customize ["modifyvm", :id, "--description", File.read("Description")]
     vb.customize ['modifyvm', :id, '--vrde', 'off']
-    vbox.customize ['modifyvm', :id, '--graphicscontroller', 'vboxvga']
+    vb.customize ['modifyvm', :id, '--graphicscontroller', 'vboxvga']
   end
    config.vm.provision "shell", inline: <<-SHELL
      apt-get install -y ansible python3
