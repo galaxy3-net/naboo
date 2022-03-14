@@ -33,6 +33,8 @@ Vagrant.configure("2") do |config|
   config.vm.network "forwarded_port", guest: 3389, host: 29389, host_ip: "0.0.0.0", auto_correct: true
   config.vm.network "forwarded_port", guest: 5901, host: 29901, host_ip: "0.0.0.0", auto_correct: true
   config.vm.network "forwarded_port", guest: 5902, host: 29902, host_ip: "0.0.0.0", auto_correct: true
+  config.vm.network "forwarded_port", guest: 5903, host: 29903, host_ip: "0.0.0.0", auto_correct: true
+  config.vm.network "forwarded_port", guest: 5904, host: 29904, host_ip: "0.0.0.0", auto_correct: true
   config.vm.network "forwarded_port", guest: 5800, host: 29800, host_ip: "0.0.0.0", auto_correct: true
   config.vm.network "forwarded_port", guest: 8080, host: 29880, host_ip: "0.0.0.0", auto_correct: true
   config.vm.network "forwarded_port", guest: 5900, host: 29900, host_ip: "0.0.0.0", auto_correct: true
